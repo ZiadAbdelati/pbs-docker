@@ -23,7 +23,7 @@ on:
 
 env:
   # If image_name input is blank, we use owner/repo
-  DEFAULT_IMAGE_NAME: ${{ github.repository_owner }}/${{ github.event.repository.name }}
+  DEFAULT_IMAGE_NAME: ziadabdelati/${{ github.event.repository.name }}
 
 jobs:
   build-and-push:
