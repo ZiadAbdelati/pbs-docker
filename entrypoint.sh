@@ -77,6 +77,10 @@ chmod +x /usr/local/bin/run_backup.sh
 
 # Default to 3:00 AM daily if CRON_SCHEDULE variable is not set
 SCHEDULE=${CRON_SCHEDULE:-"0 3 * * *"}
+SCHEDULE=${SCHEDULE#"\""} # Remove leading double quote
+SCHEDULE=${SCHEDULE%"\""} # Remove trailing double quote
+SCHEDULE=${SCHEDULE#"'"}  # Remove leading single quote
+SCHEDULE=${SCHEDULE%"'"}  # Remove trailing single quote
 
 echo "Setting up cron job with schedule: $SCHEDULE"
 
