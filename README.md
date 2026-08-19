@@ -228,9 +228,3 @@ and uses GitHub Actions cache (`type=gha`) for faster rebuilds.
 - Timezone support is included (`tzdata`) so `CRON_SCHEDULE` follows the
   container's local timezone. Set `TZ` if you need a timezone other than UTC.
 
----
-
-## License
-
-This project has no explicit license. See the repository settings if you need
-to add one.
