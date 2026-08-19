@@ -1,0 +1,12 @@
+# Local environment / secrets
+.env
+.env.local
+pbs_password.txt
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+.idea/
+.vscode/

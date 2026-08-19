@@ -1,0 +1,30 @@
+# Copy to docker-compose.yml and adjust before use.
+#
+# You can pass variables via the environment block below, or via a .env file
+# (see .env.example). If using secrets, remove/comment the PBS_PASSWORD line
+# and uncomment the secrets section.
+services:
+  pbs-backup:
+    image: ziadabdelati/pbs-docker
+    container_name: pbs-backup
+    restart: unless-stopped
+    volumes:
+      - /path/to/your/appdata:/mnt/appdata
+    environment:
+      PBS_HOST: ${PBS_HOST:-pbs.example.com}
+      PBS_DATASTORE: ${PBS_DATASTORE:-backup}
+      PBS_USER: ${PBS_USER:-root}
+      PBS_REALM: ${PBS_REALM:-pam}
+      PBS_PASSWORD: ${PBS_PASSWORD:-}
+      PBS_FINGERPRINT: ${PBS_FINGERPRINT:-}
+      BACKUP_ID: ${BACKUP_ID:-appdata}
+      BACKUP_NS: ${BACKUP_NS:-default}
+      CRON_SCHEDULE: ${CRON_SCHEDULE:-0 3 * * *}
+      TZ: ${TZ:-UTC}
+    # Uncomment to supply the password via a Docker secret instead.
+    # secrets:
+    #   - pbs_password
+
+# secrets:
+#   pbs_password:
+#     file: ./pbs_password.txt
